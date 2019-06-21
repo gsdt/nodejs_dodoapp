@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component {
+  state = {
+    id: 0,
+    content: 'not a task',
+    done: false
+  }
 
-export default App;
+  increment = ()=>{
+    this.setState({
+      count: this.state.count + 1
+    })
+  }
+
+  updateState = ()=> {
+    
+  }
+
+  render() {
+    return (
+      <>
+      <span>{this.state.content}</span>
+      <input type="checkbox" checked={this.state.done} onClick={this.updateState}></input>
+      </>
+    )
+  }
+} 
+
+
+export default App
